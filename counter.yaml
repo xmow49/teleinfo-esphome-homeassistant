@@ -1,0 +1,21 @@
+yesterday_hc:
+  initial: 0
+  step: 1
+  name: "Consommation HC"
+  icon: "mdi:moon-waning-crescent"
+
+yesterday_hp:
+  initial: 0
+  step: 1
+  name: "Consommation HP"
+  icon: "mdi:white-balance-sunny"
+
+hc_end_journey:
+  initial: 0
+  step: 1
+  name: "HC Fin de Journée"
+
+hp_end_journey:
+  initial: 0
+  step: 1
+  name: "HP Fin de Journée"
