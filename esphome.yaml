@@ -1,0 +1,52 @@
+esphome:
+  name: esp_linky
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: "Wifi"
+  password: "password"
+
+captive_portal:
+logger:
+  #level: VERY_VERBOSE
+api:
+ota:
+
+uart:
+  id: uart_bus
+  rx_pin: D7
+  tx_pin: D6
+  baud_rate: 1200
+  parity: EVEN
+  data_bits: 7
+
+sensor:
+  - platform: teleinfo
+    tags:
+     - tag_name: "HCHC"
+       sensor:
+        name: "Linky HC"
+        unit_of_measurement: "Wh"
+        icon: mdi:flash
+
+     - tag_name: "HCHP"
+       sensor:
+        name: "Linky HP"
+        unit_of_measurement: "Wh"
+        icon: mdi:flash
+
+     - tag_name: "PAPP"
+       sensor:
+        name: "Consommation Linky"
+        unit_of_measurement: "VA"
+        icon: mdi:flash
+
+     - tag_name: "IINST"
+       sensor:
+        name: "Intensité Linky"
+        unit_of_measurement: "A"
+        icon: mdi:flash
+        
+    update_interval: 60s
+    historical_mode: true
