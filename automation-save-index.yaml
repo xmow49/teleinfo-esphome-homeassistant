@@ -19,4 +19,9 @@ action:
     data: {}
     target:
       entity_id: counter.endhc
+  - service: counter.configure
+    data:
+      value: '{{ states("sensor.linky_base") | int}}'
+    target:
+      entity_id: counter.base_end_journey  
 mode: single
