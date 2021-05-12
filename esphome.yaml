@@ -38,13 +38,13 @@ sensor:
 
      - tag_name: "PAPP"
        sensor:
-        name: "Consommation Linky"
+        name: "Linky Consommation"
         unit_of_measurement: "VA"
         icon: mdi:flash
 
      - tag_name: "IINST"
        sensor:
-        name: "Intensité Linky"
+        name: "Linky Intensité"
         unit_of_measurement: "A"
         icon: mdi:flash
         
