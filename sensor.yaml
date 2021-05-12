@@ -1,0 +1,67 @@
+- platform: template
+  sensors:
+    today_hc_consumption:
+      friendly_name: "Consommation HC d'aujourd'hui"
+      value_template: >-
+        {% if is_state('sensor.linky_hc', 'unavailable') %}
+          unavailable
+        {% else %}
+          {{((states('sensor.linky_hc')|int - states('counter.hc_end_journey')|int) / 1000)| round(3)}}
+        {% endif %}
+      unit_of_measurement: "kWh"
+      icon_template: "mdi:moon-waning-crescent"
+
+    today_hp_consumption:
+      friendly_name: "Consommation HP d'aujourd'hui"
+      value_template: >-
+        {% if is_state('sensor.linky_hp', 'unavailable') %}
+          unavailable
+        {% else %}
+          {{((states('sensor.linky_hp')|int - states('counter.hp_end_journey')|int) / 1000)| round(3)}}
+        {% endif %}
+      unit_of_measurement: "kWh"
+      icon_template: "mdi:white-balance-sunny"
+
+    today_consumption:
+      friendly_name: "Consommation d'aujourd'hui"
+      value_template: >-
+        {% if is_state('sensor.linky_hc', 'unavailable') %}
+          unavailable
+        {% else %}
+          {{((states('sensor.today_hc_consumption')|float + states('sensor.today_hp_consumption')|float) |round(3))}}
+        {% endif %}
+      unit_of_measurement: "kWh"
+      icon_template: "mdi:white-balance-sunny"
+
+    today_hc_cost:
+      friendly_name: "Prix HC d'aujourd'hui"
+      value_template: >-
+        {% if is_state('sensor.linky_hc', 'unavailable') %}
+          unavailable
+        {% else %}
+          {{(((states('sensor.linky_hc')|int - states('counter.hc_end_journey')|int) / 1000) * 0.1230)| round(2)}}
+        {% endif %}
+      unit_of_measurement: "€"
+      icon_template: "mdi:currency-eur"
+
+    today_hp_cost:
+      friendly_name: "Prix HP d'aujourd'hui"
+      value_template: >-
+        {% if is_state('sensor.linky_hp', 'unavailable') %}
+          unavailable
+        {% else %}
+          {{(((states('sensor.linky_hp')|int - states('counter.hp_end_journey')|int) / 1000) * 0.1520)| round(2)}}
+        {% endif %}
+      unit_of_measurement: "€"
+      icon_template: "mdi:currency-eur"
+
+    today_cost:
+      friendly_name: "Prix d'aujourd'hui"
+      value_template: >-
+        {% if is_state('sensor.linky_hc', 'unavailable') %}
+          unavailable
+        {% else %}
+          {{(states('sensor.today_hp_cost')|float + states('sensor.today_hc_cost')|float)| round(2)}}
+        {% endif %}
+      unit_of_measurement: "€"
+      icon_template: "mdi:currency-eur"
