@@ -1,0 +1,32 @@
+#Levelace Card
+type: 'custom:apexcharts-card'
+graph_span: 1d
+apex_config:
+  chart:
+    zoom:
+      enabled: true
+    toolbar:
+      show: true
+      tools:
+        zoom: true
+        zoomin: true
+        zoomout: true
+        pan: true
+        reset: true
+header:
+  show: true
+  title: Consommation en fonction du temps
+  show_states: true
+  colorize_states: true
+series:
+  - entity: sensor.linky_consommation
+    name: Consommation Aujourd'hui
+    group_by:
+      func: avg
+      duration: 15min
+  - entity: sensor.linky_consommation
+    name: Consommation Hier
+    offset: '-1d'
+    group_by:
+      func: avg
+      duration: 15min
