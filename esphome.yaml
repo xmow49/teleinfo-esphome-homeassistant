@@ -35,6 +35,12 @@ sensor:
         name: "Linky HP"
         unit_of_measurement: "Wh"
         icon: mdi:flash
+      
+     -  tag_name: "BASE"
+       sensor:
+        name: "Linky Base"
+        unit_of_measurement: "Wh"
+        icon: mdi:flash
 
      - tag_name: "PAPP"
        sensor:
