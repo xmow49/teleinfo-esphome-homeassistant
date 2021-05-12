@@ -9,6 +9,12 @@ yesterday_hp:
   step: 1
   name: "Consommation HP"
   icon: "mdi:white-balance-sunny"
+  
+yesterday_base:
+  initial: 0
+  step: 1
+  name: "Consommation journalière"
+  icon: "mdi:white-balance-sunny"
 
 hc_end_journey:
   initial: 0
@@ -19,3 +25,8 @@ hp_end_journey:
   initial: 0
   step: 1
   name: "HP Fin de Journée"
+  
+base_end_journey:
+  initial: 0
+  step: 1
+  name: "Conso Fin de Journée"
