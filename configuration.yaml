@@ -1,4 +1,5 @@
 utility_meter:
+#-------------HCHP---------------
   #HC daily meter
   today_hc_meter:
     source: sensor.linky_hc
@@ -6,4 +7,10 @@ utility_meter:
   #HP daily meter
   today_hp_meter:
     source: sensor.linky_hp
+    cycle: daily
+    
+#-------------BASE---------------
+  #BASE daily meter
+  today_base_meter:
+    source: sensor.linky_base
     cycle: daily
