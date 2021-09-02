@@ -1,0 +1,58 @@
+esphome:
+  name: esp_linky
+  platform: ESP8266
+  board: d1_mini
+
+#setup Wifi
+wifi:
+  ssid: "Wifi"
+  password: "Password"
+
+captive_portal:
+logger:
+api:
+ota:
+
+
+#setup uart between the linky and the ESP
+uart:
+  id: uart_bus
+  rx_pin: D7
+  tx_pin: D6
+  baud_rate: 1200
+  parity: EVEN
+  data_bits: 7
+
+
+#setup teleinfo, update valut every 60s
+teleinfo:
+  id: myteleinfo
+  update_interval: 60s
+  historical_mode: true
+
+
+sensor:
+  #Linky BASE value
+  - platform: teleinfo
+    tag_name: "BASE"
+    name: "Linky BASE"
+    teleinfo_id: myteleinfo
+    state_class: "measurement"
+    device_class: "energy"
+    unit_of_measurement: "Wh"
+
+  #Linky Consumption
+  - platform: teleinfo
+    tag_name: "PAPP"
+    name: "Linky Consommation"
+    unit_of_measurement: "VA"
+    icon: mdi:flash
+    teleinfo_id: myteleinfo
+    
+   #Linky Intensity
+  - platform: teleinfo
+    tag_name: "IINST"
+    name: "Linky Intensité"
+    unit_of_measurement: "A"
+    icon: mdi:flash
+    teleinfo_id: myteleinfo
