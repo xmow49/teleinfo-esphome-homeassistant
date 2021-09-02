@@ -21,37 +21,46 @@ uart:
   parity: EVEN
   data_bits: 7
 
-teleinfo:
-  id: myteleinfo
-  update_interval: 60s
-  historical_mode: true
-
+time:
+  - platform: homeassistant
+    timezone: "Europe/Paris"
+    id: ha_time
 
 sensor:
   - platform: teleinfo
-    tag_name: "HCHC"
-    name: "Linky HC"
-    unit_of_measurement: "Wh"
-    icon: mdi:flash
-    teleinfo_id: myteleinfo
-
-  - platform: teleinfo
-    tag_name: "HCHP"
-    name: "Linky HP"
-    unit_of_measurement: "Wh"
-    icon: mdi:flash
-    teleinfo_id: myteleinfo
-  
-  - platform: teleinfo
-    tag_name: "PAPP"
-    name: "Linky Consommation"
-    unit_of_measurement: "VA"
-    icon: mdi:flash
-    teleinfo_id: myteleinfo
-
-  - platform: teleinfo
-    tag_name: "IINST"
-    name: "Linky Intensité"
-    unit_of_measurement: "A"
-    icon: mdi:flash
-    teleinfo_id: myteleinfo
+    id: myteleinfo
+    update_interval: 60s
+    historical_mode: true  
+    tags:
+      - tag_name: "HCHC"
+        sensor:
+          name: "Linky HC"
+          unit_of_measurement: "Wh"
+          device_class: "energy"
+          icon: mdi:flash
+          
+      - tag_name: "HCHP"
+        sensor:
+          name: "Linky HP"
+          unit_of_measurement: "Wh"
+          device_class: "energy"
+          icon: mdi:flash
+          
+      - tag_name: "BASE"
+        sensor:
+          name: "Linky BASE"
+          unit_of_measurement: "Wh"
+          device_class: "energy"
+          icon: mdi:flash
+          
+      - tag_name: "IINST"
+        sensor:
+          name: "Linky Intensité"
+          unit_of_measurement: "A"
+          device_class: "current"
+          icon: mdi:flash
+      - tag_name: "PAPP"
+        sensor:
+          name: "Linky Consommation PAPP"
+          unit_of_measurement: "VA"
+          icon: mdi:flash
