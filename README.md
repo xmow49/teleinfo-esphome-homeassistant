@@ -4,7 +4,7 @@
 
 ## Setup the ESP
 1. In [the esphome folder](https://github.com/xmow49/teleinfo-esphome-homeassistant/tree/main/esphome) choose HPHC or BASE tarrif
-2. In esphome, create a new node with `esp_linky` as name
+2. In esphome, create a new node with `esp-linky` as name (In the old version of ESPhome the `_` was supported, but no longer today)
 3. Copy the code, change Wifi name and password
 4. Upload the code.
 
