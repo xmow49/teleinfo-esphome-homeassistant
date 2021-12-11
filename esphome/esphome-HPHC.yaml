@@ -1,5 +1,5 @@
 esphome:
-  name: esp_linky
+  name: esp-linky
   platform: ESP8266
   board: d1_mini
 
