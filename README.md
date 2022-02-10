@@ -9,7 +9,7 @@
 4. Upload the code.
 
 ## Setup Home Assistant
-1. Copy [the configuration](https://github.com/xmow49/teleinfo-esphome-homeassistant/blob/main/configuration.yaml) into yout config file.
+1. Copy [the configuration](https://github.com/xmow49/teleinfo-esphome-homeassistant/blob/main/configuration.yaml) into your config file.
 2. Restart HomeAssistant
 
 ## Setup Dashbord
