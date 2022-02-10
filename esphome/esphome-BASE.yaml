@@ -10,15 +10,20 @@ wifi:
 
 captive_portal:
 logger:
+  baud_rate: 0   # disable logging via UART, help to avoid numerous crash with ESP_LOGD
+  level: INFO  # INFO for less log, put DEBUG to view all the linky's received info in the logs
+  esp8266_store_log_strings_in_flash: False
+
+
 api:
 ota:
 
 
 #setup uart between the linky and the ESP
 uart:
-  id: uart_bus
-  rx_pin: D7
-  tx_pin: D6
+  id: uart0
+  rx_pin: GPIO3 #RX pin of wemos D1 Mini
+  tx_pin: GPIO1
   baud_rate: 1200
   parity: EVEN
   data_bits: 7
@@ -55,4 +60,10 @@ sensor:
     name: "Linky Intensité"
     unit_of_measurement: "A"
     icon: mdi:flash
+    teleinfo_id: myteleinfo
+    
+text_sensor:
+  - platform: teleinfo
+    tag_name: "OPTARIF"
+    name: "optarif"
     teleinfo_id: myteleinfo
