@@ -29,7 +29,7 @@ uart:
   data_bits: 7
 
 
-#setup teleinfo, update valut every 60s
+#setup teleinfo, update value every 60s
 teleinfo:
   id: myteleinfo
   update_interval: 60s
@@ -42,7 +42,7 @@ sensor:
     tag_name: "BASE"
     name: "Linky BASE"
     teleinfo_id: myteleinfo
-    state_class: "measurement"
+    state_class: "total_increasing"
     device_class: "energy"
     unit_of_measurement: "Wh"
 
